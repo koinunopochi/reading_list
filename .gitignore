@@ -1,0 +1,5 @@
+# .gitignore ファイルの例
+node_modules/
+output.css  # ビルド生成物も無視する場合
+.DS_Store   # macOS用
+*.log       # ログファイルなど
