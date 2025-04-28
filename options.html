@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>リーディングリスト管理</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <h1>リーディングリスト管理</h1>
+
+  <div class="controls">
+    <button id="export-json">JSONでエクスポート</button>
+    <button id="export-csv">CSVでエクスポート</button>
+    <label for="import-file">ファイルからインポート:</label>
+    <input type="file" id="import-file" accept=".json,.csv">
+    <select id="import-mode">
+        <option value="append">追記する</option>
+        <option value="overwrite">上書きする</option>
+    </select>
+     <button id="import-button" disabled>インポート実行</button>
+  </div>
+
+  <table id="list-table">
+    <thead>
+      <tr>
+        <th>タイトル / URL</th>
+        <th>ステータス</th>
+        <th>コメント</th>
+        <th>追加日</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="list-body">
+      </tbody>
+  </table>
+
+  <script src="options.js"></script>
+</body>
+</html>

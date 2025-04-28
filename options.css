@@ -1,0 +1,103 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.controls {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 要素間のスペース */
+}
+
+.controls label {
+    margin-left: 15px;
+}
+
+#list-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#list-table th, #list-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+#list-table th {
+  background-color: #f2f2f2;
+}
+
+#list-table td a {
+  color: #007bff;
+  text-decoration: none;
+  display: block; /* タイトルを見やすく */
+  margin-bottom: 3px;
+}
+#list-table td a:hover {
+  text-decoration: underline;
+}
+#list-table td small {
+    color: #6c757d; /* URLの色 */
+    font-size: 0.85em;
+}
+
+#list-table select, #list-table textarea {
+  width: 95%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box; /* paddingを含めた幅計算 */
+}
+
+#list-table textarea {
+    min-height: 40px;
+    resize: vertical; /* 縦方向のみリサイズ可能に */
+}
+
+
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #e9ecef;
+}
+button:hover {
+    background-color: #dee2e6;
+}
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+button.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+button.delete-button:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+#import-button {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+#import-button:hover:not(:disabled) {
+    background-color: #218838;
+    border-color: #1e7e34;
+}

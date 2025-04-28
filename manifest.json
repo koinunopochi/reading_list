@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "マイリーディングリスト",
+  "version": "1.0",
+  "description": "WebページのURLを保存し、読書ステータスとコメントを管理します。",
+  "permissions": [
+    "storage",      // データをローカルに保存するため
+    "activeTab",    // 現在開いているタブの情報を取得するため
+    "scripting",    // 現在のタブでスクリプトを実行するため (タイトル取得など)
+    "downloads"     // エクスポート機能でファイルをダウンロードするため
+  ],
+  "action": {
+    "default_popup": "popup.html", // ポップアップとして表示するHTML
+    "default_icon": {
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "options_page": "options.html", // オプションページのHTML
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
