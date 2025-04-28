@@ -9,30 +9,35 @@
   <h1>リーディングリスト管理</h1>
 
   <div class="controls">
-    <button id="export-json">JSONでエクスポート</button>
-    <button id="export-csv">CSVでエクスポート</button>
-    <label for="import-file">ファイルからインポート:</label>
-    <input type="file" id="import-file" accept=".json,.csv">
-    <select id="import-mode">
-        <option value="append">追記する</option>
-        <option value="overwrite">上書きする</option>
-    </select>
-     <button id="import-button" disabled>インポート実行</button>
+    <button id="export-json" class="button button-export">JSONでエクスポート</button>
+    <button id="export-csv" class="button button-export">CSVでエクスポート</button>
+
+    <div class="import-area">
+        <label for="import-file">ファイルからインポート:</label>
+        <input type="file" id="import-file" accept=".json,.csv">
+        <select id="import-mode">
+            <option value="append">追記する</option>
+            <option value="overwrite">上書きする</option>
+        </select>
+        <button id="import-button" class="button button-import" disabled>インポート実行</button>
+    </div>
   </div>
 
-  <table id="list-table">
-    <thead>
-      <tr>
-        <th>タイトル / URL</th>
-        <th>ステータス</th>
-        <th>コメント</th>
-        <th>追加日</th>
-        <th>操作</th>
-      </tr>
-    </thead>
-    <tbody id="list-body">
-      </tbody>
-  </table>
+  <div class="table-container">
+    <table id="list-table">
+      <thead>
+        <tr>
+          <th class="col-title">タイトル</th>
+          <th class="col-status">ステータス</th>
+          <th class="col-comment">コメント</th>
+          <th class="col-date">追加日</th>
+          <th class="col-actions">操作</th>
+        </tr>
+      </thead>
+      <tbody id="list-body">
+        </tbody>
+    </table>
+  </div>
 
   <script src="options.js"></script>
 </body>
