@@ -1,103 +1,233 @@
+/* options.css */
+
+/* 基本的なリセットと設定 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #f8f9fa; /* 少し明るい背景 */
   padding: 20px;
+  color: #212529; /* 基本の文字色 */
 }
 
 h1 {
-  margin-bottom: 20px;
+  font-size: 1.75rem; /* 28px相当 */
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #343a40;
 }
 
+/* --- 操作コントロールエリア --- */
 .controls {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   border: 1px solid #dee2e6;
-  border-radius: 5px;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 24px;
+  display: flex; /* Flexboxを有効化 */
+  flex-wrap: wrap; /* 画面幅が狭い場合に折り返す */
+  align-items: center; /* 要素を中央揃え（縦方向） */
+  gap: 12px 16px; /* 縦横の隙間 */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.import-area {
   display: flex;
   align-items: center;
-  gap: 10px; /* 要素間のスペース */
+  gap: 8px; /* インポート関連要素間の隙間 */
+  margin-left: auto; /* 右寄せにする */
+  flex-wrap: wrap; /* ここも折り返し可能に */
 }
 
-.controls label {
-    margin-left: 15px;
+/* --- フォーム要素の基本スタイル --- */
+label {
+  font-size: 0.875rem; /* 14px相当 */
+  font-weight: 500;
+  color: #495057;
+  margin-right: 4px; /* ラベルと入力欄の間のスペース */
 }
 
-#list-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+input[type="file"],
+select,
+textarea {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 0.875rem;
+  color: #495057;
+  background-color: #fff;
 }
 
-#list-table th, #list-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-  vertical-align: top;
+input[type="file"] {
+    padding: 4px; /* ファイル選択の見た目を調整 */
 }
 
-#list-table th {
-  background-color: #f2f2f2;
+select {
+  cursor: pointer;
 }
 
-#list-table td a {
-  color: #007bff;
-  text-decoration: none;
-  display: block; /* タイトルを見やすく */
-  margin-bottom: 3px;
-}
-#list-table td a:hover {
-  text-decoration: underline;
-}
-#list-table td small {
-    color: #6c757d; /* URLの色 */
-    font-size: 0.85em;
-}
-
-#list-table select, #list-table textarea {
-  width: 95%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-sizing: border-box; /* paddingを含めた幅計算 */
+/* テーブル内の select と textarea */
+#list-table select,
+#list-table textarea {
+    width: 100%; /* セルの幅いっぱいに広げる */
+    font-size: 0.875rem;
 }
 
 #list-table textarea {
-    min-height: 40px;
-    resize: vertical; /* 縦方向のみリサイズ可能に */
+    min-height: 50px; /* テキストエリアの最小高さ */
+    resize: vertical; /* 縦方向のみリサイズ可能 */
+    display: block; /* 幅100%を有効にするため */
 }
 
 
-button {
-  padding: 5px 10px;
+/* --- ボタンのスタイル --- */
+.button {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 0.875rem; /* 14px相当 */
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
   cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  background-color: #e9ecef;
-}
-button:hover {
-    background-color: #dee2e6;
-}
-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  background-color: #6c757d; /* デフォルトはグレー系 */
+  color: #ffffff;
 }
 
-button.delete-button {
-  background-color: #dc3545;
-  color: white;
+.button:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* エクスポートボタン */
+.button-export {
+    background-color: #198754; /* 緑系 */
+    border-color: #198754;
+}
+.button-export:hover {
+    background-color: #157347;
+    border-color: #146c43;
+}
+
+/* インポートボタン */
+.button-import {
+    background-color: #0d6efd; /* 青系 */
+    border-color: #0d6efd;
+}
+.button-import:hover:not(:disabled) { /* disabledでない場合のみhover */
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+/* 削除ボタン */
+.button-danger {
+  background-color: #dc3545; /* 赤系 */
   border-color: #dc3545;
+  color: #ffffff;
 }
-button.delete-button:hover {
-  background-color: #c82333;
-  border-color: #bd2130;
+.button-danger:hover {
+  background-color: #bb2d3b;
+  border-color: #b02a37;
 }
 
-#import-button {
-    background-color: #28a745;
-    color: white;
-    border-color: #28a745;
+/* 無効状態のボタンスタイル */
+.button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  background-color: #6c757d; /* disabled時は元の色に戻すなど調整 */
+  border-color: #6c757d;
 }
-#import-button:hover:not(:disabled) {
-    background-color: #218838;
-    border-color: #1e7e34;
+/* インポートボタンが無効の場合 */
+.button-import:disabled {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+
+/* --- テーブル関連のスタイル --- */
+.table-container {
+  overflow-x: auto; /* 横スクロールを可能にする */
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+#list-table {
+  width: 100%; /* 親要素に対して100% */
+  min-width: 900px; /* テーブル全体の最小幅（スクロール開始の目安） */
+  border-collapse: collapse; /* ボーダーを重ねる */
+  table-layout: fixed; /* 列幅計算アルゴリズムを指定 */
+}
+
+#list-table th,
+#list-table td {
+  border: 1px solid #dee2e6; /* セルのボーダー */
+  padding: 10px 12px; /* セルの内側余白 */
+  text-align: left; /* 文字を左揃え */
+  vertical-align: top; /* 内容を上揃え */
+  font-size: 0.875rem; /* 14px相当 */
+}
+
+/* テーブルヘッダー */
+#list-table thead th {
+  background-color: #f8f9fa; /* ヘッダーの背景色 */
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.75rem; /* 12px相当 */
+  text-transform: uppercase; /* 大文字表示 */
+  letter-spacing: 0.5px; /* 文字間隔 */
+  white-space: nowrap; /* ヘッダーは折り返さない */
+}
+
+/* テーブルボディの行 */
+#list-table tbody tr:nth-child(odd) {
+  /* background-color: #f8f9fa; */ /* 縞模様にする場合 */
+}
+
+#list-table tbody tr:hover {
+  background-color: #e9ecef; /* ホバー時の背景色 */
+}
+
+/* テーブルボディのセル */
+#list-table tbody td {
+    color: #212529;
+}
+
+/* タイトル列のリンク */
+#list-table tbody td a {
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+#list-table tbody td a:hover {
+  text-decoration: underline;
+}
+
+/* 各列の幅指定 */
+#list-table .col-title { width: 40%; } /* タイトル列は割合指定でも可 */
+#list-table .col-status { width: 120px; }
+#list-table .col-comment { width: 250px; }
+#list-table .col-date { width: 170px; white-space: nowrap; } /* 追加日は折り返さない */
+#list-table .col-actions { width: 90px; text-align: center;} /* 操作列は中央揃え */
+
+/* テーブル内の削除ボタン（既に.button-dangerで指定） */
+#list-table .button-danger {
+    padding: 4px 8px; /* テーブル内なので少し小さく */
+    font-size: 0.75rem; /* 12px相当 */
+}
+
+/* データがない場合の表示 */
+#list-table tbody td[colspan="5"] {
+    text-align: center;
+    padding: 20px;
+    color: #6c757d;
 }
